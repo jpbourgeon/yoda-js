@@ -9,4 +9,4 @@ dpkg -i gh_1.12.1_linux_amd64.deb
 npm install -g npm pnpm
 
 ### npm-check, rush, heft
-pnpm install --global npm-check @microsoft/rush @microsoft/heft
+pnpm install --global npm-check @microsoft/rush @rushstack/heft
