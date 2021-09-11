@@ -1,0 +1,17 @@
+{
+  "folders": [
+    {
+      "name": "yoda-js.github.io",
+      "path": "/workspaces/yoda-js.github.io"
+    }
+  ],
+  "settings": {
+    "terminal.integrated.cwd": "${workspaceFolder}",
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.codeActionsOnSave": {
+      "source.fixAll": true
+    },
+    "editor.formatOnSave": true,
+    "editor.formatOnType": true
+  }
+}
