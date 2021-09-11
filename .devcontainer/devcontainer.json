@@ -1,0 +1,9 @@
+{
+  "image": "mcr.microsoft.com/vscode/devcontainers/typescript-node",
+  "workspaceFolder": "/workspaces/yoda-js.github.io",
+  "extensions": [
+    "dbaeumer.vscode-eslint",
+    "esbenp.prettier-vscode",
+  ],
+  "postCreateCommand": "/bin/bash /workspaces/yoda-js.github.io/.devcontainer/post-create.sh"
+}
