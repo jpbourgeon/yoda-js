@@ -22,6 +22,8 @@ This command generates static content into the `build` directory and can be serv
 
 ## Manual deployment
 
+From the project folder 
+
 ```console
-GIT_USER=<GitHub username> DEPLOYMENT_BRANCH=gh-pages CURRENT_BRANCH=main npm run deploy
+GIT_USER=<GitHub username> DEPLOYMENT_BRANCH=gh-pages CURRENT_BRANCH=main rushx deploy
 ```
