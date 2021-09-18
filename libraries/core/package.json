@@ -1,0 +1,29 @@
+{
+  "name": "@yoda-js/core",
+  "version": "0.0.0",
+  "description": "Event-driven micro-services core class for yoda-js library",
+  "main": "lib/index.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/yoda-js/yoda-js.github.io"
+  },
+  "homepage": "https://yoda-js.github.io/",
+  "author": "jpbourgeon <3356641+jpbourgeon@users.noreply.github.com> (https://github.com/jpbourgeon)",
+  "license": "SSPL-1.0",
+  "bugs": {
+    "url": "https://github.com/yoda-js/yoda-js.github.io/issues"
+  },
+  "scripts": {
+    "build": "heft test --clean"
+  },
+  "dependencies": {
+    "emittery": "0.10.0",
+    "javascript-plugin-architecture-with-typescript-definitions": "4.1.0"
+  },
+  "devDependencies": {
+    "@rushstack/eslint-config": "2.4.0",
+    "@rushstack/heft": "0.38.0",
+    "@rushstack/heft-web-rig": "0.4.12",
+    "@types/heft-jest": "1.0.2"
+  }
+}
