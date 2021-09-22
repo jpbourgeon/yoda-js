@@ -101,3 +101,4 @@ common/autoinstallers/*/.npmrc
 **/build
 **/lib
 **/lib-commonjs
+**/dist
