@@ -1,5 +1,5 @@
 {
-  "name": "@yoda-js/core",
+  "name": "@yoda-js/event-emitter-plugin",
   "version": "0.0.0",
   "description": "Event-driven micro-services core class for yoda-js library",
   "main": "lib/index.js",
@@ -22,19 +22,22 @@
     "ts-node": "ts-node ./src/index.js"
   },
   "dependencies": {
-    "emittery": "0.10.0",
-    "javascript-plugin-architecture-with-typescript-definitions": "4.1.0"
+    "emittery": "0.10.0"
   },
   "devDependencies": {
-    "typescript": "4.4.3",
+    "javascript-plugin-architecture-with-typescript-definitions": "4.1.0",
+    "@types/jest": "27.0.2",
     "@types/node": "16.9.4",
-    "ts-node": "10.2.1",
-    "eslint": "7.32.0",
-    "@typescript-eslint/parser": "4.31.2",
     "@typescript-eslint/eslint-plugin": "4.31.2",
+    "@typescript-eslint/parser": "4.31.2",
+    "cross-env": "7.0.3",
+    "eslint": "7.32.0",
     "jest": "27.2.1",
     "ts-jest": "27.0.5",
-    "@types/jest": "27.0.2",
-    "cross-env": "7.0.3"
+    "ts-node": "10.2.1",
+    "typescript": "4.4.3"
+  },
+  "peerDependencies": {
+    "javascript-plugin-architecture-with-typescript-definitions": "4.1.0"
   }
 }

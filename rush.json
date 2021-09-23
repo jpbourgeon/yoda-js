@@ -453,8 +453,8 @@
       "projectFolder": "apps/gh-pages"
     },
     {
-      "packageName": "@yoda-js/core",
-      "projectFolder": "libraries/core"
+      "packageName": "@yoda-js/event-emitter-plugin",
+      "projectFolder": "plugins/event-emitter"
     }
   ]
 }

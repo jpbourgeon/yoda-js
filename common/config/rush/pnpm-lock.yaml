@@ -4,7 +4,7 @@ specifiers:
   '@docusaurus/core': ^2.0.0-beta.3
   '@docusaurus/preset-classic': ^2.0.0-beta.3
   '@mdx-js/react': ^1.6.21
-  '@rush-temp/core': file:./projects/core.tgz
+  '@rush-temp/event-emitter-plugin': file:./projects/event-emitter-plugin.tgz
   '@rush-temp/gh-pages': file:./projects/gh-pages.tgz
   '@svgr/webpack': ^5.5.0
   '@types/jest': 27.0.2
@@ -12,6 +12,7 @@ specifiers:
   '@typescript-eslint/eslint-plugin': 4.31.2
   '@typescript-eslint/parser': 4.31.2
   clsx: ^1.1.1
+  cross-env: 7.0.3
   emittery: 0.10.0
   eslint: 7.32.0
   file-loader: ^6.2.0
@@ -29,7 +30,7 @@ dependencies:
   '@docusaurus/core': 2.0.0-beta.6_react-dom@17.0.2+react@17.0.2
   '@docusaurus/preset-classic': 2.0.0-beta.6_react-dom@17.0.2+react@17.0.2
   '@mdx-js/react': 1.6.22_react@17.0.2
-  '@rush-temp/core': file:projects/core.tgz
+  '@rush-temp/event-emitter-plugin': file:projects/event-emitter-plugin.tgz
   '@rush-temp/gh-pages': file:projects/gh-pages.tgz
   '@svgr/webpack': 5.5.0
   '@types/jest': 27.0.2
@@ -37,6 +38,7 @@ dependencies:
   '@typescript-eslint/eslint-plugin': 4.31.2_3815fab247b4312be6d1f55eb1f81298
   '@typescript-eslint/parser': 4.31.2_eslint@7.32.0+typescript@4.4.3
   clsx: 1.1.1
+  cross-env: 7.0.3
   emittery: 0.10.0
   eslint: 7.32.0
   file-loader: 6.2.0
@@ -11719,9 +11721,9 @@ packages:
     resolution: {integrity: sha512-V50KMwwzqJV0NpZIZFwfOD5/lyny3WlSzRiXgA0G7VUnRlqttta1L6UQIHzd6EuBY/cHGfwTIck7w1yH6Q5zUw==}
     dev: false
 
-  file:projects/core.tgz:
-    resolution: {integrity: sha512-uyMCEK25Og/LzcKd6TjRH36YoF+9I3YB4yK26H64Wh6wCPajSmlBtpeAbMnwdjmzWM5aTmHlQCBo+CpsUJTSqQ==, tarball: file:projects/core.tgz}
-    name: '@rush-temp/core'
+  file:projects/event-emitter-plugin.tgz:
+    resolution: {integrity: sha512-Beqou2ab8HyPhaynwR+wBunSw+oVqYHkn5Xv/R85awi4QLr4uhSut775MoWW3Z7rBPzsod7XyuAqDysgcwxh3A==, tarball: file:projects/event-emitter-plugin.tgz}
+    name: '@rush-temp/event-emitter-plugin'
     version: 0.0.0
     dependencies:
       '@types/jest': 27.0.2
