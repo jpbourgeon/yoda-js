@@ -1,19 +1,19 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
+import { Base } from 'javascript-plugin-architecture-with-typescript-definitions';
 import Emittery from 'emittery';
 
-export default function emitteryPlugin(): any {
-  const emitteryPropertyName = 'emittery';
-  const eventEmitter = {
-    emitteryPropertyName,
-    emittery: {}
-  };
+export default function eventEmitterPlugin(base: Base): any {
   const methodNames = Object.getOwnPropertyNames(Emittery.prototype).filter((v) => v !== 'constructor');
 
-  eventEmitter[emitteryPropertyName] = new Emittery();
+  const eventEmitter = {
+    emittery: {}
+  };
 
-  const emitteryMethodCaller = (methodName) =>
+  eventEmitter['emittery'] = new Emittery();
+
+  const emitteryMethodCaller = (methodName: string) =>
     function (...args) {
-      return this[emitteryPropertyName][methodName](...args);
+      return base['eventEmitter']['emittery'][methodName](...args);
     };
 
   for (const methodName of methodNames) {
