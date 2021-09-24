@@ -1,4 +1,3 @@
-// @ts-expect-error: jest globals are unreachable
 import { jest } from '@jest/globals';
 import { Base } from 'javascript-plugin-architecture-with-typescript-definitions';
 import Emittery from 'emittery';
@@ -16,6 +15,7 @@ describe('The event emitter plugin', () => {
   it('enables cross plugins communication', async () => {
     function emittingPlugin() {
       async function emitNumber(n: number) {
+        // @ts-expect-error: TODO
         await this.eventEmitter.emit('number', n);
       }
       return { emitNumber };
@@ -31,11 +31,13 @@ describe('The event emitter plugin', () => {
 
     const Yoda = Base.withPlugins([eventEmitterPlugin, emittingPlugin, observingPlugin]).withDefaults({});
     const instance = new Yoda();
+    // @ts-expect-error: TODO
     const emitSpy = jest.spyOn(instance.eventEmitter, 'emit');
-
+    // @ts-expect-error: TODO
     expect(instance.storedNumber).toBeUndefined();
     await instance.emitNumber(1);
     expect(emitSpy).toHaveBeenCalled();
+    // @ts-expect-error: TODO
     expect(instance.storedNumber).toBe(1);
   });
 });

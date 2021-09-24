@@ -12001,10 +12001,11 @@ packages:
     dev: false
 
   file:projects/event-emitter-plugin.tgz:
-    resolution: {integrity: sha512-Beqou2ab8HyPhaynwR+wBunSw+oVqYHkn5Xv/R85awi4QLr4uhSut775MoWW3Z7rBPzsod7XyuAqDysgcwxh3A==, tarball: file:projects/event-emitter-plugin.tgz}
+    resolution: {integrity: sha512-l8dfzSPpKwPitkEMgtjW1ZlqgHFbV4Chf7ah3K3NFLwd3vEoDI229MTw2Fmk7U2bVX3WrAxf7R8yDrBuYZCOZg==, tarball: file:projects/event-emitter-plugin.tgz}
     name: '@rush-temp/event-emitter-plugin'
     version: 0.0.0
     dependencies:
+      '@jest/globals': 27.2.1
       '@types/jest': 27.0.2
       '@types/node': 16.9.4
       '@typescript-eslint/eslint-plugin': 4.31.2_3815fab247b4312be6d1f55eb1f81298

@@ -1,4 +1,4 @@
-/* eslint-disable */
+// eslint-disable-next-line
 module.exports = {
   preset: 'ts-jest/presets/default-esm',
   testEnvironment: 'node',

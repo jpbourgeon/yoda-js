@@ -25,6 +25,7 @@
     "emittery": "0.10.0"
   },
   "devDependencies": {
+    "@jest/globals": "27.2.1",
     "@types/jest": "27.0.2",
     "@types/node": "16.9.4",
     "@typescript-eslint/eslint-plugin": "4.31.2",
