@@ -1,28 +1,40 @@
 import { Base } from 'javascript-plugin-architecture-with-typescript-definitions';
 import Emittery from 'emittery';
+import { ILooseBase, ILooseEventEmitter, IEventEmitter } from './types';
 
-// TODO: types
-// eslint-disable-next-line
-export default function eventEmitterPlugin(base: Base) {
+// Use index signature to type the eventEmitter while it is under construction loosely while hooking Emittery's methods
+// <https://basarat.gitbook.io/typescript/type-system/index-signatures#typescript-index-signature>
+// It is definitely typed when the plugin returns
+
+export function eventEmitterPlugin(
+  base: Base,
+  options: Base.Options
+): {
+  eventEmitter: IEventEmitter;
+} {
   const methodNames = Object.getOwnPropertyNames(Emittery.prototype).filter((v) => v !== 'constructor');
 
-  const eventEmitter = {
-    emittery: {}
+  const eventEmitter: ILooseEventEmitter = {
+    _emittery: new Emittery({
+      debug: {
+        name: 'yoda',
+        ...options.eventEmitterDebug
+      }
+    })
   };
 
-  eventEmitter['emittery'] = new Emittery();
-
-  const emitteryMethodCaller = (methodName: string) =>
-    // @ts-expect-error: TODO
-    function (...args) {
-      // @ts-expect-error: TODO
-      return base['eventEmitter']['emittery'][methodName](...args);
+  const emitteryMethodCaller = (base: ILooseBase, methodName: string) =>
+    function (...args: unknown[]): unknown {
+      return base['eventEmitter']['_emittery'][methodName](...args);
     };
 
   for (const methodName of methodNames) {
-    // @ts-expect-error: TODO
-    eventEmitter[methodName] = emitteryMethodCaller(methodName);
+    eventEmitter[methodName] = emitteryMethodCaller(base as ILooseBase, methodName);
   }
 
-  return { eventEmitter };
+  return { eventEmitter: eventEmitter as IEventEmitter };
+}
+
+export function withEventEmitter<T>(base: T, options: Base.Options): T & { eventEmitter: IEventEmitter } {
+  return Object.assign(base, eventEmitterPlugin(base as unknown as Base, options));
 }

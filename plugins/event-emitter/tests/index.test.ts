@@ -1,43 +1,49 @@
 import { jest } from '@jest/globals';
 import { Base } from 'javascript-plugin-architecture-with-typescript-definitions';
+import { eventEmitterPlugin, withEventEmitter } from '../src/';
 import Emittery from 'emittery';
-import eventEmitterPlugin from '../src/';
+// import { IEventEmitter } from '../src/types';
 
 describe('The event emitter plugin', () => {
   it('provides all the methods of the Emittery package', () => {
     const Yoda = Base.withPlugins([eventEmitterPlugin]).withDefaults({});
     const instance = new Yoda();
     const emitteryMethods = Object.getOwnPropertyNames(Emittery.prototype).filter((v) => v !== 'constructor');
-    const eventEmitterMethods = Object.getOwnPropertyNames(instance.eventEmitter).filter((v) => v !== 'constructor');
+    const eventEmitterMethods = Object.getOwnPropertyNames(instance.eventEmitter);
     expect(eventEmitterMethods).toEqual(expect.arrayContaining(emitteryMethods));
   });
 
   it('enables cross plugins communication', async () => {
-    function emittingPlugin() {
+    function emittingPlugin(base: Base, options: Base.Options) {
+      const instance = withEventEmitter(base, options);
       async function emitNumber(n: number) {
-        // @ts-expect-error: TODO
-        await this.eventEmitter.emit('number', n);
+        await instance.eventEmitter.emit('number', n);
       }
-      return { emitNumber };
+      const props: { storedNumber?: number; emitNumber: (n: number) => void } = {
+        emitNumber
+      };
+      return props;
+    }
+    function withEmittingPlugin<T>(
+      base: T,
+      options: Base.Options
+    ): T & { storedNumber?: number; emitNumber: (n: number) => void } {
+      return Object.assign(base, emittingPlugin(base as unknown as Base, options));
     }
 
-    function observingPlugin(base: Base) {
-      // @ts-expect-error: TODO
-      base.eventEmitter.on('number', (n: number) => {
-        // @ts-expect-error: TODO
-        base.storedNumber = n;
+    function observingPlugin(base: Base, options: Base.Options) {
+      const instance = withEmittingPlugin(withEventEmitter(base, options), options);
+      instance.eventEmitter.on('number', (n: number) => {
+        instance.storedNumber = n;
       });
     }
 
     const Yoda = Base.withPlugins([eventEmitterPlugin, emittingPlugin, observingPlugin]).withDefaults({});
     const instance = new Yoda();
-    // @ts-expect-error: TODO
     const emitSpy = jest.spyOn(instance.eventEmitter, 'emit');
-    // @ts-expect-error: TODO
     expect(instance.storedNumber).toBeUndefined();
-    await instance.emitNumber(1);
+    await instance.emitNumber(19);
     expect(emitSpy).toHaveBeenCalled();
-    // @ts-expect-error: TODO
-    expect(instance.storedNumber).toBe(1);
+    expect(instance.storedNumber).toBe(19);
   });
 });
