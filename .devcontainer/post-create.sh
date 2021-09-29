@@ -15,6 +15,7 @@ npm install -g npm@7.23.0
 npm install -g pnpm@6.15.1
 
 ### Global dependencies
-pnpm add --global @microsoft/rush@5.53.0
+pnpm add --global eslint@7.32.0
 pnpm add --global prettier@2.4.1
+pnpm add --global @microsoft/rush@5.53.0
 pnpm add --global @rushstack/heft@0.38.0
