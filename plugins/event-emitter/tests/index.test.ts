@@ -4,13 +4,13 @@ import { eventEmitterPlugin, withEventEmitterPlugin } from '../src/index';
 import Emittery from 'emittery';
 
 describe('The event emitter plugin', () => {
-  it('adds an instance of Emittery to the base class', () => {
+  it('should add an instance of Emittery to the base class', () => {
     const Yoda = Base.withPlugins([eventEmitterPlugin]).withDefaults({});
     const instance = new Yoda();
     expect(instance.eventEmitter).toBeInstanceOf(Emittery);
   });
 
-  it('provides a utility function for plugin composability', () => {
+  it('should provide a utility function for plugin composability', () => {
     function emittingPlugin(base: Base, options: Base.Options) {
       const instance = withEventEmitterPlugin(base, options);
       async function emitNumber(n: number) {
@@ -27,7 +27,7 @@ describe('The event emitter plugin', () => {
     expect(eventEmitterMethods).toEqual(expect.arrayContaining(['options', 'eventEmitter', 'emitNumber']));
   });
 
-  it('enables cross plugins communication', async () => {
+  it('should enable cross plugins communication', async () => {
     function emittingPlugin(base: Base, options: Base.Options) {
       const instance = withEventEmitterPlugin(base, options);
       async function emitNumber(n: number) {
@@ -59,5 +59,18 @@ describe('The event emitter plugin', () => {
     await instance.emitNumber(19);
     expect(emitSpy).toHaveBeenCalled();
     expect(instance.storedNumber).toBe(19);
+  });
+
+  it("should expose Emmittery's debug options", () => {
+    const options: Base.Options = {
+      eventEmitterDebug: {
+        name: 'foo',
+        enabled: true,
+        logger: () => undefined
+      }
+    };
+    const Yoda = Base.withPlugins([eventEmitterPlugin]).withDefaults(options);
+    const instance = new Yoda();
+    expect(instance.options).toEqual(options);
   });
 });
