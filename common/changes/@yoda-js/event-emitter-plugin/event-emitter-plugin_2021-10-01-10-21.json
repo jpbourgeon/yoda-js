@@ -1,0 +1,10 @@
+{
+  "changes": [
+    {
+      "packageName": "@yoda-js/event-emitter-plugin",
+      "comment": "allow custom events typing",
+      "type": "minor"
+    }
+  ],
+  "packageName": "@yoda-js/event-emitter-plugin"
+}

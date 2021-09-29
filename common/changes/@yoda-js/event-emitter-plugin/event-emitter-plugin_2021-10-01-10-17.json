@@ -1,0 +1,10 @@
+{
+  "changes": [
+    {
+      "packageName": "@yoda-js/event-emitter-plugin",
+      "comment": "add [Emittery](https://github.com/sindresorhus/emittery) package properties and methods to the base class, with full TypeScript support",
+      "type": "minor"
+    }
+  ],
+  "packageName": "@yoda-js/event-emitter-plugin"
+}

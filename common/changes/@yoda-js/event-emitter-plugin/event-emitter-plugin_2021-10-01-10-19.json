@@ -1,0 +1,10 @@
+{
+  "changes": [
+    {
+      "packageName": "@yoda-js/event-emitter-plugin",
+      "comment": "add a utility function to compose and use the event emitter from another plugin",
+      "type": "minor"
+    }
+  ],
+  "packageName": "@yoda-js/event-emitter-plugin"
+}

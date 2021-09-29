@@ -449,8 +449,13 @@
     //   "reviewCategory": "tools"
     // }
     {
-      "packageName": "gh-pages",
+      "packageName": "@yoda-js/gh-pages",
       "projectFolder": "apps/gh-pages"
+    },
+    {
+      "packageName": "@yoda-js/event-emitter-plugin",
+      "projectFolder": "plugins/event-emitter",
+      "shouldPublish": true
     }
   ]
 }
