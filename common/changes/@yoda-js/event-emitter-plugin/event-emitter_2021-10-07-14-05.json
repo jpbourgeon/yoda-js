@@ -1,0 +1,10 @@
+{
+  "changes": [
+    {
+      "packageName": "@yoda-js/event-emitter-plugin",
+      "comment": "add build configuration",
+      "type": "minor"
+    }
+  ],
+  "packageName": "@yoda-js/event-emitter-plugin"
+}
