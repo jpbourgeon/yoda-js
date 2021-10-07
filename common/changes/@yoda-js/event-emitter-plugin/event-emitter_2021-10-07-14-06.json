@@ -1,0 +1,10 @@
+{
+  "changes": [
+    {
+      "packageName": "@yoda-js/event-emitter-plugin",
+      "comment": "add project license",
+      "type": "minor"
+    }
+  ],
+  "packageName": "@yoda-js/event-emitter-plugin"
+}
